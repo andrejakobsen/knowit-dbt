@@ -1,0 +1,8 @@
+swapi:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../sw_warehouse.db'
+      extensions:
+        - parquet
