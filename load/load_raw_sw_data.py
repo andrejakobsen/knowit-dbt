@@ -17,9 +17,11 @@ def main():
             CREATE OR REPLACE TABLE {resource} AS
             SELECT
                 *
-            FROM read_json_auto('{DATA_PATH}/{resource}.json')
+            FROM
+                read_json_auto('{DATA_PATH}/{resource}.json');
         """
         )
+        con.table(resource).show()
 
 
 def get_resource_names():
