@@ -1,2 +1,2 @@
-duckdb==0.7.0
+duckdb==0.7.1.dev415
 dbt-duckdb==1.4.0
