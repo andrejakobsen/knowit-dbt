@@ -14,7 +14,7 @@ def main():
     # use existing persistent storage or create a new one
     if os.path.exists(WAREHOUSE_NAME):
         logging.info(f"Duckdb already has {WAREHOUSE_NAME}")
-        logging.info("Run 'make clean' to load again")
+        logging.info("Run 'make clean-data' to load again")
         return
     con = duckdb.connect(WAREHOUSE_NAME)
     resources = get_resource_names()

@@ -5,8 +5,10 @@ venv/touchfile: requirements.txt
 	. venv/bin/activate; pip install -Ur requirements.txt
 	touch venv/touchfile
 
-clean:
+clean: clean-data
 	rm -rf venv
+
+clean-data:
 	rm -rf data
 	rm *.db*
 

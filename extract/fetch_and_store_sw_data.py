@@ -14,7 +14,7 @@ def main():
     """Retrieve and store all raw data for the Star Wars API (SWAPI)."""
     if os.path.isdir(DATA_PATH):
         logging.info(f"Directory {DATA_PATH} already exists")
-        logging.info("Run 'make clean' before extracting again")
+        logging.info("Run 'make clean-data' before extracting again")
         return
     logging.info(f"Creating directory: {DATA_PATH}")
     os.mkdir(DATA_PATH)
