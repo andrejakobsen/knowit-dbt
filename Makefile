@@ -7,16 +7,26 @@ venv/touchfile: requirements.txt
 
 clean:
 	rm -rf venv
+	rm -rf data
+	rm *.db*
 
-clean-dw:
-	rm sw_warehouse.db
-	rm sw_warehouse.db.wal
+elt: t
 
-extract:
-	python ./extract/fetch_and_store_sw_data.py 
+e:
+	@echo "Extracting SWAPI data if it does not exist."
+	python ./extract/fetch_and_store_sw_data.py
 
-load: extract
+l: e
+	@echo "Loading SWAPI data to duckdb."
 	python ./load/load_raw_sw_data.py
 
-transform: load
+t: l
+	@echo "Transforming SWAPI data with dbt."
+	cd transform; \
+	dbt build
 
+docs: t
+	@echo "Generating and opening dbt docs."
+	cd transform; \
+	dbt docs generate; \
+	dbt docs serve
