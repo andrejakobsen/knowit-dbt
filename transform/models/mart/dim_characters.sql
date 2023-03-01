@@ -7,5 +7,6 @@ with characters as (
         , gender
     from
         {{ ref('stg_people') }}
+    order by 1
 )
 select * from characters
