@@ -1,8 +1,8 @@
-# knowit-dbt
-Solution to Knowit's data engineering exercise. I have decided to make one fact table called `fct_character_appearances` that gives the appearance of a Star Wars character in a given movie, ordered by the date of appearance. There are also two dimensional tables, `dim_characters` and `dim_films`, that provide information about the character and the movie they appear in, respectively.
+# Data Engineering at Knowit
+I have decided to make one fact table called `fct_character_appearances` that gives the appearance of a Star Wars character in a given movie, ordered by the date of appearance. There are also two dimensional tables, `dim_characters` and `dim_films`, that provide information about the character and the movie they appear in, respectively.
 
 1. We will be using a `Makefile` in order to simplify all the commands.
-    For Windows you may use [GnuWin](https://gnuwin32.sourceforge.net/install.html) and on Mac you can use [Homebrew](https://formulae.brew.sh/formula/make) by running
+    For Windows you may use [GnuWin](https://gnuwin32.sourceforge.net/install.html) and on Mac you can install make with [Homebrew](https://formulae.brew.sh/formula/make) by running
     ```
     brew install make
     ```
@@ -26,4 +26,9 @@ Solution to Knowit's data engineering exercise. I have decided to make one fact 
     ```
     make docs
     ```
-    This will open your browser that provides documentation and a lineage graph.
+    This will open your browser with dbt's documentation and lineage graph.
+    
+1. If you wish to clean up the virtual environment and all the data files, you can run
+    ```
+    make clean
+    ```
