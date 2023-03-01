@@ -21,7 +21,9 @@ appearances as (
 
 final as (
     select
-        row_number() over () as appearance_id
+        row_number() over (
+            order by f.release_date, c.character_id
+        ) as appearance_id
         , c.character_id
         , f.film_id
         , f.release_date as appearance_date
@@ -33,8 +35,6 @@ final as (
             on a.character_url = p.url
         left join characters as c
             on c.character_id = p.people_id
-    order by
-        f.release_date, c.character_id
 )
 
 select * from final
