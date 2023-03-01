@@ -1,4 +1,11 @@
-with films as (
-    select * from {{ ref  ('stg_films') }}
+with characters as (
+    select
+        people_id as character_id
+        , height
+        , mass
+        , hair_colors
+        , gender
+    from
+        {{ ref('stg_people') }}
 )
-select title from films
+select * from characters
