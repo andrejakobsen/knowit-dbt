@@ -131,3 +131,6 @@ dmypy.json
 # Data files
 *.json
 *.db*
+
+.DS_STORE
+duckdb

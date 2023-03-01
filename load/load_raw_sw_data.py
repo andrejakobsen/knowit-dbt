@@ -6,7 +6,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 DATA_PATH = "../data"
-WAREHOUSE_NAME = "swapi_warehouse"
+WAREHOUSE_NAME = "swapi.db"
 
 def main():
     """Creates a duckdb database and stores all raw `.json` files that
@@ -15,6 +15,7 @@ def main():
     if os.path.exists(WAREHOUSE_NAME):
         logging.info(f"Duckdb already has {WAREHOUSE_NAME}")
         logging.info("Run 'make clean' to load again")
+        return
     con = duckdb.connect(WAREHOUSE_NAME)
     resources = get_resource_names()
     for resource in resources:

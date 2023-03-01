@@ -3,6 +3,6 @@ swapi:
   outputs:
     dev:
       type: duckdb
-      path: '../sw_warehouse.db'
+      path: '../swapi.db'
       extensions:
         - parquet
