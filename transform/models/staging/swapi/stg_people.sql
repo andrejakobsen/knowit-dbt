@@ -1,8 +1,5 @@
 with source as (
-    select
-        *
-    from
-        {{ source('main', 'people') }}
+    select * from {{ source('main', 'people') }}
 ),
 
 staged as (
