@@ -12,9 +12,12 @@ DATA_PATH = "./data"
 
 def main():
     """Retrieve and store all raw data for the Star Wars API (SWAPI)."""
-    if not os.path.isdir(DATA_PATH):
-        logging.info(f"Creating directory: {DATA_PATH}")
-        os.mkdir(DATA_PATH)
+    if os.path.isdir(DATA_PATH):
+        logging.info(f"Directory {DATA_PATH} already exists")
+        logging.info("Run 'make clean' before extracting again")
+        return
+    logging.info(f"Creating directory: {DATA_PATH}")
+    os.mkdir(DATA_PATH)
     resources = fetch_json_data(ROOT_URL)
     for resource_name, url in resources.items():
         resource_results = fetch_resource_results(url)
