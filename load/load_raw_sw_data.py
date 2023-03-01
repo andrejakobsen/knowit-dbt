@@ -1,12 +1,13 @@
-import os
-import duckdb
-
 import logging
+import os
+
+import duckdb
 
 logging.basicConfig(level=logging.INFO)
 
 DATA_PATH = "../data"
 WAREHOUSE_NAME = "swapi.db"
+
 
 def main():
     """Creates a duckdb database and stores all raw `.json` files that
