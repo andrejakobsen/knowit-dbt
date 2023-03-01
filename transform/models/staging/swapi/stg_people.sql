@@ -1,4 +1,11 @@
-with people as (
+with source as (
+    select
+        *
+    from
+        {{ source('main', 'people') }}
+),
+
+staged as (
     select
         cast(replace(url[30:], '/', '') as tinyint) as people_id
         , name
@@ -15,6 +22,7 @@ with people as (
         , films
         , url
     from
-        people
+        source
 )
-select * from people
+
+select * from staged

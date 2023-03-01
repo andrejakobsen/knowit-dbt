@@ -1,4 +1,11 @@
-with films as (
+with source as (
+    select
+        *
+    from
+        {{ source('main', 'films') }}
+),
+
+staged as (
     select
         try_cast(episode_id as tinyint) as film_id
         , title
@@ -8,6 +15,7 @@ with films as (
         , release_date
         , url
     from
-        films
+        source
 )
-select * from films
+
+select * from staged
