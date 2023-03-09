@@ -32,3 +32,10 @@ I have decided to make one fact table called `fct_character_appearances` that gi
     ```
     make clean
     ```
+
+## Potential Improvements
+1. Write integration/unit tests to ensure the Python scripts behave as expected and dbt tests that check for null and unique values.
+
+1. Dockerize the project for easier deployment and adding CI/CD in GitHub.
+
+1. Use an EL and DataOps tool such as Meltano and use a stable version of DuckDB.
